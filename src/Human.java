@@ -7,5 +7,6 @@ public class Human {
 
     Phone mobile;
     Animal pet;
+    Car auto;
 
 }
