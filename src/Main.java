@@ -15,6 +15,9 @@ public class Main {
         tadeusz.auto = new Car("3", "mazda");
         System.out.println("Tadeusz's car: " + tadeusz.auto.producer + " " + tadeusz.auto.model);
 
+        tadeusz.setSalary(15000.00);
+        System.out.println("Tadeusz's salary: " + tadeusz.getSalary() + "zl");
+
 
     }
 }
