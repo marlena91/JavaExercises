@@ -12,12 +12,12 @@ public class Main {
         Animal dog = new Animal("dog");
         dog.name = "Azor";
 
-        tadeusz.auto = new Car("3", "mazda");
-        System.out.println("Tadeusz's car: " + tadeusz.auto.producer + " " + tadeusz.auto.model);
 
-        tadeusz.setSalary(15000.00);
+        tadeusz.setSalary(45000.00);
         System.out.println("Tadeusz's salary: " + tadeusz.getSalary() + "zl");
 
+        tadeusz.setCar(new Car("6", "mazda", 25000.00));
+        System.out.println("Tadeusz's car: " + tadeusz.getCar());
 
     }
 }

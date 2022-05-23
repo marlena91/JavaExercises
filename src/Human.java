@@ -8,16 +8,16 @@ public class Human {
 
     Phone mobile;
     Animal pet;
-    Car auto;
+    private Car auto;
 
-    public Double getSalary(){
+    public Double getSalary() {
         System.out.println("The data was checked: " + java.time.LocalDateTime.now());
         return this.salary;
     }
 
-    public void setSalary(Double salary){
-        if (salary < 0){
-            System.out.println("Nie mona przypisac ujemnej wartosci");
+    public void setSalary(Double salary) {
+        if (salary < 0) {
+            System.out.println("You cannot assign a negative value");
         } else {
             System.out.println("New salary sent");
             System.out.println("Take the annex");
@@ -26,5 +26,21 @@ public class Human {
         this.salary = salary;
     }
 
+    public String getCar() {
+        return this.auto.producer + " " + this.auto.model;
+    }
+
+    public void setCar(Car car) {
+        if (car.value < this.salary) {
+            System.out.println("You managed to buy a " + car.producer + " " + car.model + " with cash.");
+            this.auto = car;
+        } else if (this.salary > (car.value) / 12) {
+            System.out.println("Car bought on credit");
+            this.auto = car;
+        } else {
+            System.out.println(this.firstName + ", you can't afford this car.");
+            System.out.println("Apply for studies and find a new job or go for a raise");
+        }
+    }
 
 }

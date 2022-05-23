@@ -1,14 +1,15 @@
 public class Car {
         final String model;
         final String producer;
-        Double millage;
+        Double mileage;
         Double engineVolume;
         String color;
-        Integer value;
+        Double value;
 
-        public Car(String model, String producer) {
+        public Car(String model, String producer, Double value) {
             this.model = model;
             this.producer = producer;
-            this.millage = 5000.00;
+            this.value = value;
+            this.mileage = 5000.00;
         }
 }
