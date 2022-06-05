@@ -46,4 +46,15 @@ public class Animal {
             System.out.println(name + " said: nice walk, thx!");
         }
     }
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", isAlive=" + isAlive +
+                ", species='" + species + '\'' +
+                ", weight=" + weight +
+                '}';
+    }
 }

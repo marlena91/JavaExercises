@@ -1,3 +1,6 @@
+import devices.Car;
+import devices.Phone;
+
 public class Human {
 
     String firstName;
@@ -9,6 +12,10 @@ public class Human {
     Phone mobile;
     Animal pet;
     private Car auto;
+
+    public Human() {
+        this.isAlive = true;
+    }
 
     public Double getSalary() {
         System.out.println("The data was checked: " + java.time.LocalDateTime.now());
@@ -35,7 +42,7 @@ public class Human {
             System.out.println("You managed to buy a " + car.producer + " " + car.model + " with cash.");
             this.auto = car;
         } else if (this.salary > (car.value) / 12) {
-            System.out.println("Car bought on credit");
+            System.out.println("devices.Car bought on credit");
             this.auto = car;
         } else {
             System.out.println(this.firstName + ", you can't afford this car.");
@@ -43,4 +50,17 @@ public class Human {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Human{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                ", isAlive=" + isAlive +
+                ", salary=" + salary +
+                ", mobile=" + mobile +
+                ", pet=" + pet +
+                ", auto=" + auto +
+                '}';
+    }
 }
