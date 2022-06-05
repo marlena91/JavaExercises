@@ -1,12 +1,8 @@
 package devices;
 
-public class Phone {
+public class Phone extends Device {
 
-    public String producer;
-    String model;
-    Double millage;
     Double engineVolume;
-    String color;
     Integer value;
 
     @Override
@@ -14,10 +10,15 @@ public class Phone {
         return "devices.Phone{" +
                 "producer='" + producer + '\'' +
                 ", model='" + model + '\'' +
-                ", millage=" + millage +
                 ", engineVolume=" + engineVolume +
                 ", color='" + color + '\'' +
                 ", value=" + value +
+                ", yearOfProduction=" + yearOfProduction +
                 '}';
+    }
+
+    @Override
+    public void turnOn() {
+        System.out.println("Turn on the phone");
     }
 }

@@ -14,21 +14,12 @@ public class Main {
         tadeusz.mobile.producer = "SAMSUNG";
 
         Car auto1 = new Car("3", "mazda", 25000.00);
-        Car auto2 = new Car("3", "mazda", 25000.00);
-        Car auto3 = new Car("focus", "ford", 18000.00);
 
-        tadeusz.pet = new Animal("hamster");
-        tadeusz.pet.name = "Azor";
+        tadeusz.setSalary(100000.00);
+        tadeusz.setCar(auto1);
+        tadeusz.auto.turnOn();
+        tadeusz.mobile.turnOn();
 
-        System.out.println("Human: " + tadeusz);
 
-        System.out.println("Tadeusz's pet: " + tadeusz.pet);
-        System.out.println("Tadeusz's mobile: " + tadeusz.mobile);
-
-        System.out.println("auto1: " + auto1);
-        System.out.println("auto2: " + auto2);
-        System.out.println("auto3: " + auto3);
-        System.out.println("auto1.equals(auto2): " + auto1.equals(auto2));
-        System.out.println("auto1.equals(auto3): " + auto1.equals(auto3));
     }
 }

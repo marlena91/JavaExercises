@@ -11,7 +11,7 @@ public class Human {
 
     Phone mobile;
     Animal pet;
-    private Car auto;
+    Car auto;
 
     public Human() {
         this.isAlive = true;

@@ -2,12 +2,9 @@ package devices;
 
 import java.util.Objects;
 
-public class Car {
-        public final String model;
-        public final String producer;
+public class Car extends Device {
         Double mileage;
         Double engineVolume;
-        String color;
         public Double value;
 
         public Car(String model, String producer, Double value) {
@@ -40,6 +37,12 @@ public class Car {
                 ", engineVolume=" + engineVolume +
                 ", color='" + color + '\'' +
                 ", value=" + value +
+                ", yearOfProduction=" + yearOfProduction +
                 '}';
+    }
+
+    @Override
+    public void turnOn() {
+        System.out.println("Turn on the engine");
     }
 }
