@@ -1,6 +1,8 @@
-package devices;
+package stuff.devices;
 
-public abstract class Device {
+import stuff.Sellable;
+
+public abstract class Device implements Sellable {
     public String producer;
     public String model;
     public Integer yearOfProduction;

@@ -1,25 +1,29 @@
-import devices.Car;
-import devices.Phone;
+package stuff;
+
+import stuff.devices.Car;
+import stuff.devices.Phone;
 
 public class Human {
 
-    String firstName;
+    public String firstName;
     String lastName;
     Integer age;
     Boolean isAlive;
     Double salary;
+    public Double cash;
 
-    Phone mobile;
+    public Phone mobile;
     Animal pet;
     Car auto;
 
     public Human() {
         this.isAlive = true;
+        this.cash = 1000.00;
     }
 
-    public Double getSalary() {
-        System.out.println("The data was checked: " + java.time.LocalDateTime.now());
-        return this.salary;
+    public Double getCash() {
+//        System.out.println("The data was checked: " + java.time.LocalDateTime.now());
+        return this.cash;
     }
 
     public void setSalary(Double salary) {
@@ -27,22 +31,20 @@ public class Human {
             System.out.println("You cannot assign a negative value");
         } else {
             System.out.println("New salary sent");
-            System.out.println("Take the annex");
-            System.out.println("Don't hide your income");
         }
-        this.salary = salary;
+        this.cash += salary;
     }
 
-    public String getCar() {
-        return this.auto.producer + " " + this.auto.model;
+    public Car getCar() {
+        return this.auto;
     }
 
     public void setCar(Car car) {
-        if (car.value < this.salary) {
+        if (car.value < this.cash) {
             System.out.println("You managed to buy a " + car.producer + " " + car.model + " with cash.");
             this.auto = car;
-        } else if (this.salary > (car.value) / 12) {
-            System.out.println("devices.Car bought on credit");
+        } else if (this.cash > (car.value) / 12) {
+            System.out.println("stuff.devices.Car bought on credit");
             this.auto = car;
         } else {
             System.out.println(this.firstName + ", you can't afford this car.");
@@ -50,9 +52,15 @@ public class Human {
         }
     }
 
+    public void removeCar(Car car) {
+        if (car == this.auto) {
+            this.auto = null;
+        }
+    }
+
     @Override
     public String toString() {
-        return "Human{" +
+        return "stuff.devices.Human{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", age=" + age +
