@@ -71,4 +71,18 @@ public abstract class Animal implements Sellable, Feedable{
             System.out.println("The seller does not have the animal");
         }
     }
+    @Override
+    public void feed(Integer foodWeight) {
+        if (!isAlive) {
+            System.out.println("You cannot feed a dead animal!");
+        } else {
+            this.weight += foodWeight;
+            System.out.println(name + " said: Thx for food!");
+        }
+    }
+
+    @Override
+    public void feed() {
+        this.feed(1);
+    }
 }

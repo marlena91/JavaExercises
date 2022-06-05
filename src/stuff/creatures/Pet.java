@@ -6,13 +6,4 @@ public class Pet extends Animal{
         super(species);
     }
 
-    @Override
-    public void feed() {
-
-    }
-
-    @Override
-    public void feed(Integer foodWeight) {
-
-    }
 }
