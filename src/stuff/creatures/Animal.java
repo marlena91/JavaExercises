@@ -1,14 +1,16 @@
-package stuff;
+package stuff.creatures;
 
-public class Animal implements Sellable {
+import stuff.Sellable;
+
+public abstract class Animal implements Sellable, Feedable{
     private static final Double DEFAULT_DOG_WEIGHT = 9.0;
     static final Double DEFAULT_WEIGHT = 5.0;
     static final Double DEFAULT_CAT_WEIGHT = 2.0;
-    String name;
+    public String name;
     Integer age;
     Boolean isAlive;
     final String species;
-    private Double weight;
+    Double weight;
 
 
     public Animal(String species) {
@@ -27,16 +29,7 @@ public class Animal implements Sellable {
         return this.weight;
     }
 
-    void feed() {
-        if (!isAlive) {
-            System.out.println("You cannot feed a dead dog!");
 
-        } else {
-            weight += 1;
-            System.out.println(name + " said: Thx for food!");
-        }
-
-    }
 
     void takeForAWalk() {
         if (weight == 0) {

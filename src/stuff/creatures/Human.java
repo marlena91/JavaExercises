@@ -1,4 +1,4 @@
-package stuff;
+package stuff.creatures;
 
 import stuff.devices.Car;
 import stuff.devices.Phone;
@@ -6,14 +6,14 @@ import stuff.devices.Phone;
 public class Human {
 
     public String firstName;
-    String lastName;
-    Integer age;
+    public String lastName;
+    public Integer age;
     Boolean isAlive;
     Double salary;
     public Double cash;
 
     public Phone mobile;
-    Animal pet;
+    public Animal pet;
     Car auto;
 
     public Human() {

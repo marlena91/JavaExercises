@@ -1,6 +1,6 @@
 package stuff.devices;
 
-import stuff.Human;
+import stuff.creatures.Human;
 
 public class Phone extends Device {
 

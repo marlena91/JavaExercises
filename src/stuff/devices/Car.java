@@ -1,6 +1,6 @@
 package stuff.devices;
 
-import stuff.Human;
+import stuff.creatures.Human;
 
 import java.util.Objects;
 
