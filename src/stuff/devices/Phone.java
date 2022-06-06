@@ -2,10 +2,28 @@ package stuff.devices;
 
 import stuff.creatures.Human;
 
+import java.lang.reflect.Array;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.List;
+
 public class Phone extends Device {
 
+    static final String DEFAULT_APP_VERSION = "latest";
+    static final String DEFAULT_SERVER_ADDRESS = "play.store.com";
+    private static final Integer DEFAULT_PORT_NUMBER = 443;
+    private static final String DEFAULT_PROTOCOL = "https";
+
+    public Double screenSize;
+    public String os;
     Double engineVolume;
     Integer value;
+
+    public Phone(String model, String producer, Integer yearOfProduction) {
+        this.model = model;
+        this.producer = producer;
+        this.yearOfProduction = yearOfProduction;
+    }
 
     @Override
     public String toString() {
@@ -42,4 +60,33 @@ public class Phone extends Device {
             System.out.println("The seller does not have the item");
         }
     }
+
+    public void installAnApp(List<String> appNames) {
+        for (String appName : appNames) {
+            installAnApp(appName);
+        }
+    }
+
+    public void installAnApp(String appName) {
+        this.installAnApp(appName, DEFAULT_APP_VERSION);
+    }
+
+    public void installAnApp(String appName, String version) {
+        this.installAnApp(appName, version, DEFAULT_SERVER_ADDRESS);
+    }
+
+    public void installAnApp(String appName, String version, String server) {
+        try {
+            URL url = new URL(DEFAULT_PROTOCOL, server, DEFAULT_PORT_NUMBER, appName + "-" + version);
+            this.installAnApp(url);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void installAnApp(URL url) {        
+        System.out.println("install " + url.getFile() + " from " + url.getHost());
+
+    }
+
 }

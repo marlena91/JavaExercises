@@ -4,7 +4,7 @@ import stuff.creatures.Human;
 
 import java.util.Objects;
 
-public class Car extends Device {
+public abstract class Car extends Device {
     Double mileage;
     Double engineVolume;
     public Double value;
@@ -66,4 +66,6 @@ public class Car extends Device {
             System.out.println("The seller does not have the car");
         }
     }
+
+    public abstract void refuel();
 }
