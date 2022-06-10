@@ -13,7 +13,6 @@ public class Human {
     public String lastName;
     public Integer age;
     Boolean isAlive;
-    Double salary;
     public Double cash;
 
     public Phone mobile;
@@ -38,8 +37,8 @@ public class Human {
             System.out.println("You cannot assign a negative value");
         } else {
             System.out.println("New salary sent");
+            this.cash += salary;
         }
-        this.cash += salary;
     }
 
     public void getCar(Integer numberOfPlace) {
@@ -86,7 +85,7 @@ public class Human {
                 ", lastName='" + lastName + '\'' +
                 ", age=" + age +
                 ", isAlive=" + isAlive +
-                ", salary=" + salary +
+                ", cash=" + cash +
                 ", mobile=" + mobile +
                 ", pet=" + pet +
                 ", garage=" + Arrays.toString(garage) +

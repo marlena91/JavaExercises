@@ -12,8 +12,4 @@ public class Electric extends Car{
         System.out.println("refuel");
     }
 
-    @Override
-    public void sell(Human seller, Human buyer, Double price) {
-        //
-    }
 }

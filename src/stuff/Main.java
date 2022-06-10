@@ -11,25 +11,33 @@ public class Main {
     public static void main(String[] args) throws Exception {
 
         Human marlena = new Human(3);
-        Human smb = new Human (1);
-        Car car1 = new Electric("el3", "Electro", 1000.00);
-        Car car2 = new Diesel("super", "Smog", 3000.00);
-        Car car3 = new Diesel("super2", "Smog2", 5000.00);
+        marlena.firstName = "Marlena";
+
+        Human smb = new Human (3);
+        smb.firstName = "Zdzisiek";
+
+        Car car1 = new Electric("car1", "Electro", 1000.00);
+        Car car2 = new Diesel("car2", "Smog", 3000.00);
+        Car car3 = new Diesel("car3", "Smog2", 5000.00);
+        Car car4 = new Diesel("car4", "Smog2", 5000.00);
         car1.yearOfProduction = 2022;
         car2.yearOfProduction = 1990;
         car3.yearOfProduction = 1995;
 
         marlena.setSalary(50000.00);
+        smb.setSalary(50000.00);
 
         marlena.setCar(car1,0);
         marlena.setCar(car2,1);
         marlena.setCar(car3,2);
+        smb.setCar(car4,0);
 
-        try{
-            car1.sell(smb, marlena, 8000.00);
+        try {
+            car4.sell(smb, marlena, 8000.00);
         }
         catch (Exception e) {
-            System.out.println(e);
+            System.out.println("Nie udało się sprzedać ");
+            e.printStackTrace();
         }
     }
 }

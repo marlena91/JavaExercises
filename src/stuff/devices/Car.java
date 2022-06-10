@@ -62,23 +62,29 @@ public abstract class Car extends Device implements Comparable<Car>{
 
     @Override
     public void sell(Human seller, Human buyer, Double price) throws Exception {
-        if (Arrays.asList(seller.garage).contains(this)) {
-            System.out.println(buyer.firstName + " bought a " + this.producer + " from " + seller.firstName);
-        } else {
+        if (!Arrays.asList(seller.garage).contains(this)) {
             throw new Exception("Seller does not have the item");
+        } if(!Arrays.asList(buyer.garage).contains(null)){
+            throw new Exception("Buyer does not have the free place in garage");
+        } if (buyer.cash < price) {
+            throw new Exception("Buyer does not have enough money");
+        } else {
+            int sellerGaragePlace = Arrays.asList(seller.garage).indexOf(this);
+            seller.garage[sellerGaragePlace] = null;
 
+            for(int i=0; i < buyer.sizeOfGarage; i++){
+                if(buyer.garage[i] == null){
+                    buyer.garage[i] = this;
+                    break;
+                }
+            }
+
+            buyer.cash -= price;
+            seller.cash += price;
+
+            System.out.println(buyer.firstName + " bought a " + this.producer + " from " + seller.firstName);
         }
-//        if (buyer.cash < price) {
-//            throw new Exception("Buyer does not have enough money");
-//        }
-//
-//        buyer.cash -= price;
-//        seller.cash += price;
-//
-//        buyer.mobile = this;
-//        seller.mobile = null;
-//
-//        System.out.println(buyer.firstName + " bought a " + this.producer + " from " + seller.firstName);
+
     }
 
     public abstract void refuel();
