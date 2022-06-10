@@ -43,22 +43,21 @@ public class Phone extends Device {
     }
 
     @Override
-    public void sell(Human seller, Human buyer, Double price) {
-        if (this == seller.mobile) {
-            if (buyer.getCash() >= price) {
-                buyer.cash -= price;
-                seller.cash += price;
-
-                buyer.mobile = this;
-                seller.mobile = null;
-
-                System.out.println(buyer.firstName + " bought a " + this.producer + " from " + seller.firstName);
-            } else {
-                System.out.println("The buyer does not have the right amount");
-            }
-        } else {
-            System.out.println("The seller does not have the item");
+    public void sell(Human seller, Human buyer, Double price) throws Exception {
+        if (seller.mobile != this) {
+            throw new Exception("Seller does not have the item");
         }
+        if (buyer.cash < price) {
+            throw new Exception("Buyer does not have enough money");
+        }
+
+        buyer.cash -= price;
+        seller.cash += price;
+
+        buyer.mobile = this;
+        seller.mobile = null;
+
+        System.out.println(buyer.firstName + " bought a " + this.producer + " from " + seller.firstName);
     }
 
     public void installAnApp(List<String> appNames) {
@@ -84,7 +83,7 @@ public class Phone extends Device {
         }
     }
 
-    public void installAnApp(URL url) {        
+    public void installAnApp(URL url) {
         System.out.println("install " + url.getFile() + " from " + url.getHost());
 
     }

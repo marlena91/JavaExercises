@@ -1,6 +1,7 @@
 package stuff.devices;
 
 import stuff.Sellable;
+import stuff.creatures.Human;
 
 public abstract class Device implements Sellable {
     public String producer;
@@ -19,4 +20,7 @@ public abstract class Device implements Sellable {
     }
 
     public abstract void turnOn();
+
+    public abstract void sell(Human seller, Human buyer, Double price) throws Exception;
+
 }

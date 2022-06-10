@@ -1,7 +1,11 @@
 package stuff.creatures;
 
 import stuff.devices.Car;
+import stuff.devices.Electric;
 import stuff.devices.Phone;
+
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
 public class Human {
 
@@ -14,10 +18,13 @@ public class Human {
 
     public Phone mobile;
     public Animal pet;
-    Car auto;
+    public Integer sizeOfGarage;
+    public Car[] garage;
 
-    public Human() {
+    public Human(Integer sizeOfGarage) {
         this.isAlive = true;
+        this.sizeOfGarage = sizeOfGarage;
+        this.garage = new Car[this.sizeOfGarage];
         this.cash = 1000.00;
     }
 
@@ -35,28 +42,42 @@ public class Human {
         this.cash += salary;
     }
 
-    public Car getCar() {
-        return this.auto;
+    public void getCar(Integer numberOfPlace) {
+            System.out.println(garage[numberOfPlace]);
     }
 
-    public void setCar(Car car) {
+    public void setCar(Car car, Integer numberOfPlace) {
         if (car.value < this.cash) {
             System.out.println("You managed to buy a " + car.producer + " " + car.model + " with cash.");
-            this.auto = car;
+            this.garage[numberOfPlace] = car;
         } else if (this.cash > (car.value) / 12) {
             System.out.println("stuff.devices.Car bought on credit");
-            this.auto = car;
+            this.garage[numberOfPlace] = car;
         } else {
             System.out.println(this.firstName + ", you can't afford this car.");
             System.out.println("Apply for studies and find a new job or go for a raise");
         }
     }
 
-    public void removeCar(Car car) {
-        if (car == this.auto) {
-            this.auto = null;
+    public Double sumOfCarValues() {
+        Double value = 0.00;
+        for (Car car: garage) {
+            value += car.value;
         }
+        return value;
     }
+
+    public void sortCars() {
+        System.out.println("Before sorting: " + Arrays.toString(garage));
+        Arrays.sort(garage);
+        System.out.println("Before sorting: " + Arrays.toString(garage));
+    }
+
+//    public void removeCar(Car car) {
+//        if (car == this.auto) {
+//            this.auto = null;
+//        }
+//    }
 
     @Override
     public String toString() {
@@ -68,7 +89,7 @@ public class Human {
                 ", salary=" + salary +
                 ", mobile=" + mobile +
                 ", pet=" + pet +
-                ", auto=" + auto +
+                ", garage=" + Arrays.toString(garage) +
                 '}';
     }
 }
