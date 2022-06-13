@@ -2,19 +2,36 @@ package stuff.devices;
 
 import stuff.creatures.Human;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public abstract class Car extends Device implements Comparable<Car>{
     Double mileage;
     Double engineVolume;
     public Double value;
+    private List<String> owner;
 
     public Car(String model, String producer, Double value) {
         this.model = model;
         this.producer = producer;
         this.value = value;
         this.mileage = 5000.00;
+        assert false;
+        this.owner = new ArrayList<>();
+    }
+
+    public void addOwner(String name){
+        this.owner.add(name);
+    }
+
+    public String getOwner(){
+        if(this.owner.size() == 0){
+            return null;
+        } else {
+            return this.owner.get(this.owner.size()-1);
+        }
     }
 
     @Override
@@ -41,6 +58,7 @@ public abstract class Car extends Device implements Comparable<Car>{
                 ", color='" + color + '\'' +
                 ", value=" + value +
                 ", yearOfProduction=" + yearOfProduction +
+                ", owner=" + this.getOwner() +
                 '}';
     }
 
@@ -68,9 +86,13 @@ public abstract class Car extends Device implements Comparable<Car>{
             throw new Exception("Buyer does not have the free place in garage");
         } if (buyer.cash < price) {
             throw new Exception("Buyer does not have enough money");
+        }
+        if (!Objects.equals(this.getOwner(), seller.firstName)){
+            throw new Exception("Seller is not the latest owner");
         } else {
             int sellerGaragePlace = Arrays.asList(seller.garage).indexOf(this);
             seller.garage[sellerGaragePlace] = null;
+            this.addOwner(buyer.firstName);
 
             for(int i=0; i < buyer.sizeOfGarage; i++){
                 if(buyer.garage[i] == null){

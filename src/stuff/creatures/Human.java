@@ -49,9 +49,11 @@ public class Human {
         if (car.value < this.cash) {
             System.out.println("You managed to buy a " + car.producer + " " + car.model + " with cash.");
             this.garage[numberOfPlace] = car;
+            car.addOwner(this.firstName);
         } else if (this.cash > (car.value) / 12) {
             System.out.println("stuff.devices.Car bought on credit");
             this.garage[numberOfPlace] = car;
+            car.addOwner(this.firstName);
         } else {
             System.out.println(this.firstName + ", you can't afford this car.");
             System.out.println("Apply for studies and find a new job or go for a raise");
